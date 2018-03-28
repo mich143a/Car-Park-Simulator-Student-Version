@@ -7,5 +7,17 @@ namespace CarParkSimulator
 {
     class ActiveTickets
     {
+        public void GetTicket()
+        {
+
+        }
+        public void AddTicket()
+        {
+
+        }
+        public void RemoveTicket()
+        {
+
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace CarParkSimulator
 
         public void CarArrivedAtEntrance()
         {
-
+            
         }
 
         public void TicketDispensed()
@@ -34,12 +34,30 @@ namespace CarParkSimulator
 
         }
 
-        public bool isFull()
+        public bool IsFull()
         {
             if (currentSpaces == 0)
                 return true;
             else
                 return false;
+        }
+        public bool IsEmpty()
+        {
+            if (currentSpaces == maxSpaces)
+                return true;
+            else
+                return false;
+        }
+        public bool HasSpaces()
+        {
+            if (currentSpaces > 0)
+                return true;
+            else
+                return false;
+        }
+        public int GetCurrentSpaces()
+        {
+            return currentSpaces;
         }
     }
 }
