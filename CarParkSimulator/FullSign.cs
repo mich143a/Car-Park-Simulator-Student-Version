@@ -11,12 +11,12 @@ namespace CarParkSimulator
 
         public bool isLit(bool lit)
         {
-            if (currentSpaces == 0)
+            if (lit == true)
             {
-                lit = true;
+                return true;
             }
             else
-                lit = false;
+                return false;
         }
         public void SetLit(bool lit)
         {
