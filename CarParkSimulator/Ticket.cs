@@ -9,6 +9,10 @@ namespace CarParkSimulator
     {
         private bool paid;
 
+        public Ticket() {
+            paid = false;
+        }
+
         public bool IsPaid()
         {
             return paid;

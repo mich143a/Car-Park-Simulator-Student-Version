@@ -17,13 +17,14 @@ namespace CarParkSimulator
         {
             return tickets;
         }
-        public void AddTicket(Ticket ticket)
+        public void AddTicket()
         {
+            Ticket ticket = new Ticket();
             tickets.Add(ticket);
         }
         public void RemoveTicket()
         {
-            tickets.Remove(ticket);
+            tickets.RemoveAt(0);
         }
     }
 }
