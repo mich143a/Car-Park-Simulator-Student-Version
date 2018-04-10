@@ -7,17 +7,34 @@ namespace CarParkSimulator
 {
     class ActiveTickets
     {
-        public void GetTicket()
-        {
+        //variables
+        private List<Ticket> Tickets;
 
-        }
-        public void AddTicket()
-        {
 
+        //constructor
+        public ActiveTickets()
+        {
+            Tickets = new List<Ticket>();
         }
+
+
+
+        //functions
+        public List<Ticket> GetTickets()
+        {
+            return Tickets;
+        }
+
+        public void AddTicket(Ticket ticket)
+        {
+            Tickets.Add(ticket);
+        }
+
         public void RemoveTicket()
         {
-
+            int index = Tickets.Count() - 1;
+            Tickets.RemoveAt(index);
         }
+
     }
 }
