@@ -9,6 +9,21 @@ namespace CarParkSimulator
     {
         private int currentSpaces;
         private int maxSpaces;
+        TicketMachine ticketMachine;
+        TicketValidator ticketValidator;
+        FullSign fullSign;
+        Barrier entryBarrier;
+        Barrier exitBarrier;
+
+
+        public CarPark(TicketMachine ticketMachine, TicketValidator ticketValidator, FullSign fullSign, Barrier entryBarrier, Barrier exitBarrier)
+        {
+            this.ticketMachine = ticketMachine;
+            this.ticketValidator = ticketValidator;
+            this.fullSign = fullSign;
+            this.entryBarrier = entryBarrier;
+            this.exitBarrier = exitBarrier;
+        }
 
         public void CarArrivedAtEntrance()
         {

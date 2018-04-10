@@ -8,8 +8,14 @@ namespace CarParkSimulator
     class TicketValidator
     {
         private string message;
+        ActiveTickets activeTickets;
 
-        public void AssignCarPark()
+        public TicketValidator(ActiveTickets activeTickets)
+        {
+            this.activeTickets = activeTickets;
+        }
+
+        public void AssignCarPark(CarPark carPark)
         {
 
         }

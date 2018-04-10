@@ -7,6 +7,11 @@ namespace CarParkSimulator
 {
     class EntrySensor: Sensor
     {
-    
+        CarPark carPark;
+
+        public EntrySensor(CarPark carPark)
+        {
+            this.carPark = carPark;
+        }
     }
 }
