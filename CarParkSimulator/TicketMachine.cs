@@ -29,11 +29,11 @@ namespace CarParkSimulator
         }
         public void ClearMessage()
         {
-            message = " ";
+            message = "";
         }
         public void GetMessage(string message)
         {
-            this.message = message;
+            return message;
         }
     }
 }
