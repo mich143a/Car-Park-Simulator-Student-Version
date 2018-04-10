@@ -27,27 +27,33 @@ namespace CarParkSimulator
 
         public void CarArrivedAtEntrance()
         {
-            
+            ticketMachine.CarArrived();
         }
 
         public void TicketDispensed()
         {
-
+            entryBarrier.Raise();
         }
 
         public void CarEnteredCarPark()
         {
-
+            entryBarrier.Lower();
+            ticketMachine.ClearMessage();
+        }
+        public void CarArrivedAtExit()
+        {
+            ticketValidator.CarArrived();
         }
         public void TicketValidated()
         {
-
+            exitBarrier.Raise();
         }
 
         public void CarExitedCarPark()
         {
-
-        }
+            exitBarrier.Lower();
+            ticketValidator.ClearMessage();
+        } 
 
         public bool IsFull()
         {
