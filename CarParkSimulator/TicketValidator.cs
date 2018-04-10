@@ -23,6 +23,10 @@ namespace CarParkSimulator
         {
 
         }
+        public void TicketEntered()
+        {
+
+        }
         public void ClearMessage()
         {
             message = " ";

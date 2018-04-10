@@ -46,7 +46,7 @@ namespace CarParkSimulator
         }
         public void TicketValidated()
         {
-            exitBarrier.Raise();
+
         }
 
         public void CarExitedCarPark()
