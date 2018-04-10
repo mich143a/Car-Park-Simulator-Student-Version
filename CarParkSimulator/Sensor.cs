@@ -11,18 +11,15 @@ namespace CarParkSimulator
 
         public void CarDetected()
         {
-            this.carOnSensor = true;
+            carOnSensor = true;
         }
         public void CarLeftSensor()
         {
-            this.carOnSensor = false;
+            carOnSensor = false;
         }
         public bool IsCarOnSensor()
         {
-            if (carOnSensor == true)
-                return true;
-            else
-                return false;
+            return carOnSensor;
         }
     }
 }
