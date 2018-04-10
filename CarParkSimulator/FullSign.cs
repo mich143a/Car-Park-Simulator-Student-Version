@@ -11,12 +11,7 @@ namespace CarParkSimulator
 
         public bool isLit(bool lit)
         {
-            if (lit == true)
-            {
-                return true;
-            }
-            else
-                return false;
+            return lit;
         }
         public void SetLit(bool lit)
         {

@@ -20,10 +20,7 @@ namespace CarParkSimulator
         }
         public bool IsLifted()
         {
-            if (lifted == true)
-                return true;
-            else
-                return false;
+            return lifted;
         }
     }
 }
