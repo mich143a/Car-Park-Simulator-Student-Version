@@ -110,7 +110,7 @@ namespace CarParkSimulator
 
             lstActiveTickets.Items.Clear();
             List<Ticket> tickets = activeTickets.GetTickets();
-            foreach (Ticket ticket in tickets){
+            foreach (Ticket ticket in tickets{
                 lstActiveTickets.Items.Add(ticket.GetHashCode());
             }
         }
