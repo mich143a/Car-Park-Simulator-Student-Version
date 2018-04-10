@@ -62,43 +62,58 @@ namespace CarParkSimulator
 
         private void CarArrivesAtEntrance(object sender, EventArgs e)
         {
-
+            entrySensor.CarDetected();
             UpdateDisplay();
         }
 
         private void DriverPressesForTicket(object sender, EventArgs e)
         {
-
+            ticketMachine.PrintTicket();
             UpdateDisplay();
         }
 
         private void CarEntersCarPark(object sender, EventArgs e)
         {
-
+            entrySensor.CarLeftSensor();
             UpdateDisplay();
         }
 
         private void CarArrivesAtExit(object sender, EventArgs e)
         {
-
+            exitSensor.CarDetected();
             UpdateDisplay();
         }
 
         private void DriverEntersTicket(object sender, EventArgs e)
         {
-
+            ticketValidator.TicketEntered();
             UpdateDisplay();
+            test;
 
         }
 
         private void CarExitsCarPark(object sender, EventArgs e)
         {
-
+            exitSensor.CarLeftSensor();
             UpdateDisplay();
         }
 
         private void UpdateDisplay()
         {
+            lblEntrySensor.Text = entrySensor.IsCarOnSensor().ToString();
+            lblExitSensor.Text = exitSensor.IsCarOnSensor().ToString();
+            lblSpaces.Text = carPark.GetCurrentSpaces().ToString();
+            lblFullSign.Text = fullSign.isLit().ToString();
+            lblExitBarrier.Text = exitBarrier.IsLifted().ToString();
+            lblEntryBarrier.Text = entryBarrier.IsLifted().ToString();
+            lblTicketMachine.Text = ticketMachine.GetMessage();
+            lblTicketValidator.Text = ticketValidator.GetMessage();
+
+            lstActiveTickets.Items.Clear();
+            List<Ticket> tickets = activeTickets.GetTickets();
+            foreach (Ticket ticket in tickets{
+                lstActiveTickets.Items.Add(ticket.GetHashCode());
+            }
         }
     }
 }
