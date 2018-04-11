@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +7,8 @@ namespace CarParkSimulator
 {
     class CarPark
     {
-        private int currentSpaces;
-        private int maxSpaces;
+        private int currentSpaces = 5;
+        private int maxSpaces = 5;
         TicketMachine ticketMachine;
         TicketValidator ticketValidator;
         FullSign fullSign;
@@ -39,6 +39,8 @@ namespace CarParkSimulator
         {
             entryBarrier.Lower();
             ticketMachine.ClearMessage();
+            currentSpaces = currentSpaces - 1;
+            if (this.IsFull()) fullSign.SetLit(true);
         }
         public void CarArrivedAtExit()
         {
@@ -46,13 +48,15 @@ namespace CarParkSimulator
         }
         public void TicketValidated()
         {
-
+            exitBarrier.Raise();
         }
 
         public void CarExitedCarPark()
         {
             exitBarrier.Lower();
             ticketValidator.ClearMessage();
+            currentSpaces = currentSpaces + 1;
+            fullSign.SetLit(false);
         } 
 
         public bool IsFull()
