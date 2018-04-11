@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +24,8 @@ namespace CarParkSimulator
             message = "Please insert your ticket.";
         }
 
-        public void TicketEntered(Ticket ticket) {
-            activeTickets.RemoveTicket(ticket);
+        public void TicketEntered() {
+            activeTickets.RemoveTicket();
             message = "Thank you, drive safely.";
             carPark.TicketValidated();
         }
@@ -34,7 +34,7 @@ namespace CarParkSimulator
         {
             message = "";
         }
-        public string GetMessage(string message)
+        public string GetMessage()
         {
             return message;
         }
