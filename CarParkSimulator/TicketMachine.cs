@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +33,7 @@ namespace CarParkSimulator
         {
             message = "";
         }
-        public string GetMessage(string message)
+        public string GetMessage()
         {
             return message;
         }
