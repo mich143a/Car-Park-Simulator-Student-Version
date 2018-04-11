@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,30 +63,46 @@ namespace CarParkSimulator
         private void CarArrivesAtEntrance(object sender, EventArgs e)
         {
             entrySensor.CarDetected();
+            btnCarArrivesAtEntrance.Visible = false;
+            btnDriverPressesForTicket.Visible = true;
             UpdateDisplay();
         }
 
         private void DriverPressesForTicket(object sender, EventArgs e)
         {
             ticketMachine.PrintTicket();
+            btnDriverPressesForTicket.Visible = false;
+            btnCarEntersCarPark.Visible = true;
             UpdateDisplay();
         }
 
         private void CarEntersCarPark(object sender, EventArgs e)
         {
             entrySensor.CarLeftSensor();
+            btnCarEntersCarPark.Visible = false;
+            btnCarArrivesAtExit.Visible = true;
+
+            if (carPark.IsFull() == false)
+            {
+                btnCarArrivesAtEntrance.Visible = true;
+            }
+            else btnCarArrivesAtEntrance.Visible = false;
             UpdateDisplay();
         }
 
         private void CarArrivesAtExit(object sender, EventArgs e)
         {
             exitSensor.CarDetected();
+            btnCarArrivesAtExit.Visible = false;
+            btnDriverEntersTicket.Visible = true;
             UpdateDisplay();
         }
 
         private void DriverEntersTicket(object sender, EventArgs e)
         {
             ticketValidator.TicketEntered();
+            btnDriverEntersTicket.Visible = false;
+            btnCarExitsCarPark.Visible = true;
             UpdateDisplay();
 
         }
@@ -94,6 +110,13 @@ namespace CarParkSimulator
         private void CarExitsCarPark(object sender, EventArgs e)
         {
             exitSensor.CarLeftSensor();
+            btnCarExitsCarPark.Visible = false;
+            btnCarArrivesAtEntrance.Visible = true;
+            if (carPark.IsEmpty() == false)
+            {
+                btnCarArrivesAtExit.Visible = true;
+            }
+            else btnCarArrivesAtExit.Visible = false;
             UpdateDisplay();
         }
 
@@ -110,7 +133,7 @@ namespace CarParkSimulator
 
             lstActiveTickets.Items.Clear();
             List<Ticket> tickets = activeTickets.GetTickets();
-            foreach (Ticket ticket in tickets{
+            foreach (Ticket ticket in tickets){
                 lstActiveTickets.Items.Add(ticket.GetHashCode());
             }
         }
